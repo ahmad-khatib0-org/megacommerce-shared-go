@@ -5,15 +5,7 @@ import (
 	"time"
 )
 
-type TaskName string
-
 type TaskFunc func()
-
-const (
-	TaskNameEmailBatching          TaskName = "email_batching"
-	TaskNameSendVerifyEmail        TaskName = "send_verify_email"
-	TaskNameSendPasswordResetEmail TaskName = "send_password_reset_email"
-)
 
 type ScheduledTask struct {
 	Name                 string        `json:"name"`
