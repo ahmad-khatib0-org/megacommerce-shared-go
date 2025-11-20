@@ -6,6 +6,7 @@ require (
 	github.com/ahmad-khatib0-org/megacommerce-proto v0.4.16
 	github.com/brianvoe/gofakeit/v7 v7.9.0
 	github.com/fatih/color v1.18.0
+	github.com/grpc-ecosystem/go-grpc-middleware/v2 v2.3.3
 	github.com/oklog/ulid/v2 v2.1.1
 	github.com/stretchr/testify v1.11.1
 	go.uber.org/zap v1.27.1
