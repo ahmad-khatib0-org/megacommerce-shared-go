@@ -1,14 +1,5 @@
 package models
 
-type EventName string
-
-const (
-	EventNameSupplierCreate    = "supplier_create"
-	EventNameEmailConfirmation = "email_confirmation"
-	EventNamePasswordForgot    = "password_forgot"
-	EventNameLogin             = "login"
-)
-
 type EventStatus string
 
 const (
@@ -19,12 +10,12 @@ const (
 
 // AuditRecord provides a consistent set of fields used for all audit logging.
 type AuditRecord struct {
-	EventName EventName       `json:"event_name"`
+	EventName string          `json:"event_name"`
 	Status    EventStatus     `json:"status"`
 	EventData AuditEventData  `json:"event"`
 	Actor     AuditEventActor `json:"actor"`
 	Meta      map[string]any  `json:"meta"`
-	Error     EventError      `json:"error,omitempty"`
+	Error     EventError      `json:"error"`
 }
 
 // AuditEventData contains all event specific data about the modified entity
@@ -60,7 +51,7 @@ func (ar *AuditRecord) Fail() {
 	ar.Status = EventStatusFail
 }
 
-func AuditRecordNew(ctx *Context, event EventName, initialStatus EventStatus) *AuditRecord {
+func AuditRecordNew(ctx *Context, event string, initialStatus EventStatus) *AuditRecord {
 	return &AuditRecord{
 		EventName: event,
 		Status:    initialStatus,
