@@ -61,6 +61,9 @@ func ExtractMetadataToContext(ctx context.Context, md metadata.MD, defaultLangs 
 	} else {
 		mc.AcceptLanguage = defaultLangs
 	}
+	if vals := md.Get(XTimezone); len(vals) > 0 {
+		mc.Timezone = vals[0]
+	}
 
 	// Updated session headers with x- prefix
 	if vals := md.Get(HeaderXSessionID); len(vals) > 0 {

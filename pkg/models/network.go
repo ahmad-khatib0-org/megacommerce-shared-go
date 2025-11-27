@@ -21,6 +21,7 @@ const (
 	HeaderXSessionCreatedAt   = "x-session-created-at"
 	HeaderXSessionExpiresAt   = "x-session-expires-at"
 	HeaderXLastActivityAt     = "x-last-activity-at"
+	XTimezone                 = "x-timezone"
 	HeaderXProps              = "x-props"
 	HeaderXAPIKey             = "x-api-key"
 	HeaderXCSRFToken          = "x-csrf-token"

@@ -29,6 +29,7 @@ type Context struct {
 	UserAgent      string          `json:"user_agent"`
 	AcceptLanguage string          `json:"accept_language"`
 	ServerName     string          `json:"from_server"` // request from grpc server
+	Timezone       string          `json:"timezone"`
 }
 
 func NewContext(ctx context.Context, session *Session, requestID, ipAddress, xForwardedFor, path, userAgent, acceptLanguage string) *Context {
