@@ -20,6 +20,15 @@ func NewPointer[T any](v T) *T {
 	return &v
 }
 
+// NewPointerFromOptional creates a pointer only if the value is not the zero value
+func NewPointerFromOptional[T comparable](v T) *T {
+	var zero T
+	if v == zero {
+		return nil
+	}
+	return &v
+}
+
 // GetMetadataValue convert the []string metadata value to a map[string]string
 func GetMetadataValue(value []string) map[string]string {
 	if len(value) == 0 {
